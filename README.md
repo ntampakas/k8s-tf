@@ -22,5 +22,5 @@
      export KUBE_CONFIG_PATH=~/.kube/config
      aws eks --region eu-central-1 update-kubeconfig --name 'nt-eks-test-eks-bCWNg7wR'
      ```
-
+   - Currently used 10.45.0.0/16 CIDR. A template network with instructions will be introduced 
 
