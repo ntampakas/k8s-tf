@@ -15,4 +15,6 @@ data "aws_security_group" "selected" {
     name   = "tag:aws:eks:cluster-name"
     values = [local.cluster_name]
   }
+
+  depends_on = [module.eks]
 }
