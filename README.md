@@ -17,6 +17,16 @@
      root@lptp:/home/lptp/repos/k8s-tf# ls
      README.md  _variables.tf  eks  security-groups.tf  terraform.tfstate  terraform.tfstate.backup  vpc.tf
      root@lptp:/home/lptp/repos/k8s-tf# cat _variables.tf 
+     terraform {
+     backend "s3" {
+       region  = "eu-central-1"
+       profile = "devops"
+       bucket  = "privacyscaling-tf-state"
+       key     = "nt-eks.tfstate"
+       encrypt = "true"
+       }
+
+     }
      locals {
        vpc = {
          name        = "nt-eks"
@@ -37,3 +47,4 @@
      aws eks --region eu-central-1 update-kubeconfig --name 'nt-eks-xxxx'
      ```
    - VPC name and VPC CIDR can be set editing: __variables.tf_
+   - Edit backend.s3 in __variables.tf_ to determine where state will be stored
