@@ -8,7 +8,6 @@ terraform {
   }
 }
 
-
 locals {
   vpc = {
     name        = "nt-eks"
