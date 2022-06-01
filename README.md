@@ -14,9 +14,9 @@
 ## Hints:
    - It` s recommended to provision first the VPC + security groups.
      ```
-     root@lptp:/home/lptp/repos/k8s-tf# ls
+     # ls
      README.md  _variables.tf  eks  security-groups.tf  terraform.tfstate  terraform.tfstate.backup  vpc.tf
-     root@lptp:/home/lptp/repos/k8s-tf# cat _variables.tf 
+     # cat _variables.tf 
      terraform {
      backend "s3" {
        region  = "eu-central-1"
@@ -33,13 +33,13 @@
          cidr_prefix = "10.45"
        }
      }
-     root@lptp:/home/lptp/repos/k8s-tf# terraform init
-     root@lptp:/home/lptp/repos/k8s-tf# terraform apply
-     root@lptp:/home/lptp/repos/k8s-tf# cp eks/* .
-     root@lptp:/home/lptp/repos/k8s-tf# ls
+     # terraform init
+     # terraform apply
+     # cp eks/* .
+     # ls
      README.md  _variables.tf  autoscaler.tf  efs-csi.tf  efs.tf  eks  eks-cluster.tf  security-groups.tf  terraform.tfstate  terraform.tfstate.backup    vpc.tf
-     root@lptp:/home/lptp/repos/k8s-tf# terraform init
-     root@lptp:/home/lptp/repos/k8s-tf# terraform apply
+     # terraform init
+     # terraform apply
      ```
    - Before installing Autoscaler/EFS CSI  make sure you set k8s environment and update-kubeconfig:
      ```
