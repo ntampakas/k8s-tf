@@ -43,8 +43,8 @@
      ```
    - Before installing Autoscaler/EFS CSI  make sure you set k8s environment and update-kubeconfig:
      ```
-     export KUBE_CONFIG_PATH=~/.kube/config
-     aws eks --region eu-central-1 update-kubeconfig --name 'nt-eks-xxxx'
+     # export KUBE_CONFIG_PATH=~/.kube/config
+     # aws eks --region eu-central-1 update-kubeconfig --name 'nt-eks-xxxx'
      ```
    - VPC name and VPC CIDR can be set editing: __variables.tf_
    - Edit backend.s3 in __variables.tf_ to determine where state will be stored
