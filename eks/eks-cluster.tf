@@ -27,7 +27,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
 
     disk_size              = 50
-    instance_types         = ["t3.micro", "t3.small"]
+    instance_types         = ["t3a.small", "t3.small"]
     create_launch_template = false
     launch_template_name   = ""
 
@@ -79,7 +79,7 @@ module "eks" {
       max_size     = 3
       desired_size = 1
 
-      instance_types = ["t3.micro"]
+      instance_types = ["t3a.small"]
       #capacity_type  = "SPOT"
       capacity_type = "ON_DEMAND"
 
@@ -102,7 +102,7 @@ module "eks" {
       max_size     = 5
       desired_size = 2
 
-      instance_types = ["t3.micro"]
+      instance_types = ["t3a.small"]
       #capacity_type  = "SPOT"
       capacity_type = "ON_DEMAND"
 
