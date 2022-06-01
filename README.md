@@ -1,4 +1,4 @@
-# k8s-tf
+# k8s-tf (non prod version)
 ## This terraform code automates EKS creation with some private + public node groups in a new VPC.
 
 ## Prerequisites
