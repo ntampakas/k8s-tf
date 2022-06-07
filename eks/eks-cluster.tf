@@ -50,6 +50,7 @@ module "eks" {
   eks_managed_node_groups = {
 
     blue = {}
+
     green_private = {
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
@@ -71,8 +72,8 @@ module "eks" {
         Environment = "test"
         Terraform   = "true"
       }
-
     }
+
     white_private = {
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
@@ -94,8 +95,31 @@ module "eks" {
         Environment = "test"
         Terraform   = "true"
       }
-
     }
+
+    purple_private = {
+      subnet_ids   = data.aws_subnets.private.ids
+      min_size     = 1
+      max_size     = 3
+      desired_size = 1
+
+      instance_types = ["t3.medium"]
+      capacity_type  = "ON_DEMAND"
+
+      labels = {
+        Environment = "test"
+        GithubRepo  = "terraform-aws-eks"
+        GithubOrg   = "terraform-aws-modules"
+        Snip        = "Snap"
+      }
+
+      tags = {
+        Environment = "test"
+        Terraform   = "true"
+        prover      = "true"
+      }
+    }
+
     white_public = {
       subnet_ids   = data.aws_subnets.public.ids
       min_size     = 2
@@ -117,7 +141,6 @@ module "eks" {
         Environment = "test"
         Terraform   = "true"
       }
-
     }
   }
 }
