@@ -111,12 +111,12 @@ module "eks" {
         GithubRepo  = "terraform-aws-eks"
         GithubOrg   = "terraform-aws-modules"
         Snip        = "Snap"
+        prover      = "true"
       }
 
       tags = {
         Environment = "test"
         Terraform   = "true"
-        prover      = "true"
       }
     }
 
