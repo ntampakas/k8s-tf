@@ -107,16 +107,25 @@ module "eks" {
       capacity_type  = "ON_DEMAND"
 
       labels = {
-        Environment = "test"
-        GithubRepo  = "terraform-aws-eks"
-        GithubOrg   = "terraform-aws-modules"
-        Snip        = "Snap"
-        prover      = "true"
+        GithubRepo = "terraform-aws-eks"
+        GithubOrg  = "terraform-aws-modules"
+        Snip       = "Snap"
+        prover     = "true"
       }
 
+      taints = [
+        {
+          key    = "provers"
+          value  = "Exists"
+          effect = "NO_SCHEDULE"
+        }
+      ]
+
       tags = {
-        Environment = "test"
-        Terraform   = "true"
+        Environment                                       = "test"
+        Terraform                                         = "true"
+        "k8s.io/cluster-autoscaler/${local.cluster_name}" = "owned"
+        "k8s.io/cluster-autoscaler/enabled"               = "true"
       }
     }
 
