@@ -9,7 +9,6 @@
 
 ## K8s Functions supported:
    - Cluster Autoscaler
-   - EFS CSI Driver (shared storage)
 
 ## Hints:
    - It` s recommended to provision first the VPC + security groups.
@@ -41,7 +40,7 @@
      # terraform init
      # terraform apply
      ```
-   - Before installing Autoscaler/EFS CSI  make sure you set k8s environment and update-kubeconfig:
+   - Before installing Autoscaler make sure you set k8s environment and update-kubeconfig:
      ```
      # export KUBE_CONFIG_PATH=~/.kube/config
      # aws eks --region eu-central-1 update-kubeconfig --name 'nt-eks-xxxx'
