@@ -52,6 +52,8 @@ module "eks" {
     blue = {}
 
     green_private = {
+      use_name_prefix = false
+
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
       max_size     = 3
