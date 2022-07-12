@@ -10,13 +10,14 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "${local.vpc.name}-${random_string.suffix.result}"
+  #cluster_name = "${local.vpc.name}-${random_string.suffix.result}"
+  cluster_name = "${local.vpc.name}-dev"
 }
 
-resource "random_string" "suffix" {
-  length  = 4
-  special = false
-}
+#resource "random_string" "suffix" {
+#  length  = 4
+#  special = false
+#}
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
