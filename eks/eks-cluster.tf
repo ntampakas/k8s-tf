@@ -49,9 +49,13 @@ module "eks" {
 
   eks_managed_node_groups = {
 
-    blue = {}
+    blue = {
+      use_name_prefix = false
+    }
 
     green_private = {
+      use_name_prefix = false
+
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
       max_size     = 3
@@ -75,6 +79,8 @@ module "eks" {
     }
 
     white_private = {
+      use_name_prefix = false
+
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
       max_size     = 3
@@ -98,6 +104,8 @@ module "eks" {
     }
 
     purple_private = {
+      use_name_prefix = false
+
       subnet_ids   = data.aws_subnets.private.ids
       min_size     = 1
       max_size     = 3
@@ -130,6 +138,8 @@ module "eks" {
     }
 
     white_public = {
+      use_name_prefix = false
+
       subnet_ids   = data.aws_subnets.public.ids
       min_size     = 2
       max_size     = 5
