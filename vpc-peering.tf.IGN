@@ -1,0 +1,8 @@
+module "vpc-peering" {
+  source = "git::https://github.com/ntampakas/tf-vpc-peering-module.git"
+
+  peer_vpc_id = ""
+  vpc_id      = module.vpc.vpc_id
+
+  tags = local.vpc.name
+}
